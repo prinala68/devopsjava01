@@ -5,20 +5,22 @@
 replicaCount: 2
 
 image:
-  githubID: deepakkr35
-  repository: demo-java-app
+  githubID: prinal
+  repository: devopsjava01
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: V2.0
 
-appName: demo-java-app
+appName: devopsjava01
 
 namespace: app
 
 kibanaService: "kibana-service:5601"
 esService: "es-master-service:9200"
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: dockerhub-secret
+
 nameOverride: ""
 fullnameOverride: ""
 
