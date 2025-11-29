@@ -3,19 +3,21 @@ pipeline {
     parameters {
         string(name: 'build_version', defaultValue: 'V1.0', description: 'Build version to use for Docker image')
     }
+
     stages {
         stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/prinala68/devopsjava01.git'
             }
         }
+
         stage('Build and Test') {
             steps {
                 sh 'ls -ltr'
-                // build the project and create a JAR file
                 sh 'cd demo-java-app && mvn clean package'
             }
         }
+
         stage('Static Code Analysis') {
             environment {
                 SONAR_URL = "http://sonarqube:9000"
@@ -26,10 +28,10 @@ pipeline {
                 }
             }
         }
+
         stage('Build and Push Docker Image') {
             environment {
                 DOCKER_IMAGE = "prinal/demo-java-app:${build_version}"
-                // Indiquer à Jenkins d’utiliser le daemon Docker Desktop exposé
                 DOCKER_HOST = "tcp://host.docker.internal:2375"
             }
             steps {
@@ -43,6 +45,7 @@ pipeline {
                 }
             }
         }
+
         stage('Update Deployment File') {
             environment {
                 GIT_REPO_NAME = "devopsjava01"
