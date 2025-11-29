@@ -29,6 +29,8 @@ pipeline {
         stage('Build and Push Docker Image') {
             environment {
                 DOCKER_IMAGE = "prinal/demo-java-app:${build_version}"
+                // Indiquer à Jenkins d’utiliser le daemon Docker Desktop exposé
+                DOCKER_HOST = "tcp://host.docker.internal:2375"
             }
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
