@@ -1,5 +1,5 @@
 # Base image 
-openjdk:17.0.1-jdk-slim
+FROM openjdk
 
 
 
