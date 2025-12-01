@@ -1,5 +1,6 @@
 # Base image 
-FROM openjdk:21-jdk-slim
+openjdk:17.0.1-jdk-slim
+
 
 
 # setting artifact path
