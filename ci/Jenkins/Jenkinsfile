@@ -8,7 +8,7 @@ pipeline {
         SONAR_URL = "http://localhost:9000"
         DOCKER_IMAGE = "prinal/demo-java-app:${build_version}"
         GIT_REPO_NAME = "devopsjava01"
-        GIT_USER_NAME = "prinal"
+        GIT_USER_NAME = "prinala68"
     }
 
     stages {
