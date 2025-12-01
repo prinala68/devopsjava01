@@ -1,5 +1,6 @@
 # Base image 
-FROM openjdk
+FROM openjdk:17-jdk
+
 
 # setting artifact path
 ARG artifact=target/demo-java-app.jar
